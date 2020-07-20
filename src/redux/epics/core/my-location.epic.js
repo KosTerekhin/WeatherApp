@@ -22,7 +22,7 @@ export const myLocationEpic = (action$) =>
 				lat,
 				lon
 			});
-			return apiRequest({ body: null, url, method: 'GET', feature: MYLOCATION });
+			return apiRequest({ url, feature: MYLOCATION });
 		})
 	);
 

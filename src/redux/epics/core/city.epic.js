@@ -17,7 +17,7 @@ export const cityEpic = (action$) =>
 				lat,
 				lon
 			});
-			return apiRequest({ body: null, url, method: 'GET', feature: CITY });
+			return apiRequest({ url, feature: CITY });
 		})
 	);
 

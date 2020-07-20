@@ -15,9 +15,7 @@ export const searchLocationEpic = (action$) =>
 	action$.pipe(
 		ofType(`${CLIENT} ${SEARCHLOCATION_FETCH}`),
 		filter(({ payload, meta }) => payload.length >= meta),
-		map(({ payload }) =>
-			apiCustomRequest({ body: null, url: SEARCHLOCATION_URL + payload, method: 'GET', feature: SEARCHLOCATION })
-		)
+		map(({ payload }) => apiCustomRequest({ url: SEARCHLOCATION_URL + payload, feature: SEARCHLOCATION }))
 	);
 
 export const searchLocationFetchSuccessEpic = (action$) =>

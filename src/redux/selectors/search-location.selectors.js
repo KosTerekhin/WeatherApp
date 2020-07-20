@@ -1,0 +1,5 @@
+import { createSelector } from 'reselect';
+
+export const selectSearchLocation = (state) => state.searchLocation;
+
+export const selectSearchResults = createSelector([ selectSearchLocation ], (state) => state.cities);

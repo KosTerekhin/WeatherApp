@@ -20,4 +20,4 @@
 ## search server 
 
 - I've added a route that returns UA cities with a random delay to test request cancelation or redirect
-- Link to to server: 
+- Link to to server: https://github.com/KosTerekhin/books-store-redux/blob/master/routes/cities.js

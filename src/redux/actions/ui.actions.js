@@ -39,6 +39,7 @@ export const setNotification = ({ message }) => ({
 	type: UI_SET_NOTIFICATION,
 	payload: message
 });
+
 // CLEAR ACTION
 export const clearGlobalLoading = () => ({
 	type: UI_GLOBAL_CLEAR_LOADING

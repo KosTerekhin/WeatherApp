@@ -8,6 +8,8 @@ export const MYLOCATION_FETCH = `${MYLOCATION} FETCH`;
 export const MYLOCATION_UPDATE_STORE = `${MYLOCATION} UPDATE_STORE`;
 export const MYLOCATION_SET_ERROR = `${MYLOCATION} SET_ERROR`;
 
+// If location not provided
+// data will be loaded for default location
 export const myLocationFetch = ({ payload = defaultLocation }) => ({
 	type: `${CLIENT} ${MYLOCATION_FETCH}`,
 	payload

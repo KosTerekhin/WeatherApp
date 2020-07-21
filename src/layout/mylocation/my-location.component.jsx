@@ -52,4 +52,5 @@ const mapToProps = createStructuredSelector({
 	data: selectMyLocationData
 });
 
+// i made search as HOC in case it should be displayed on different page or multiple pages.
 export default compose(connect(mapToProps), withCitySearch)(MyLocationComponent);

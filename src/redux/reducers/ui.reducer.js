@@ -14,6 +14,8 @@ const INITIAL_STATE = {
 	notification: null
 };
 
+// this reduce can be smaller,
+// however, the idea is to have all these options in case app gets bigger
 const uiReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case UI_GLOBAL_SET_LOADING:
@@ -47,7 +49,6 @@ const uiReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				notification: null
 			};
-
 		case UI_REDIRECT_SUCCESS:
 			return {
 				...state,

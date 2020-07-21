@@ -14,10 +14,10 @@ import CityComponent from './city.component';
 const CityContainer = ({ match: { params }, cityFetch, loading, notificaiton, redirectSuccess }) => {
 	useEffect(
 		() => {
+			// HANDLING NEXT / PREVIOUS browser buttons clicks
 			window.onpopstate = () => {
 				redirectSuccess();
 			};
-			console.log(params);
 			cityFetch(params);
 		},
 		// eslint-disable-next-line

@@ -11,9 +11,14 @@ import useSpinner from '../../customHooks/spinner/useSpinner';
 import MyLocationComponent from './my-location.component.jsx';
 
 const MyLocationContainer = ({ myLocationFetch, loading, notificaiton, redirectSuccess }) => {
+	// Created sepate functions
+	// in case we want to run different functions
+	// for each scenario
 	const location = (position) => {
 		myLocationFetch(position);
 	};
+	// by dipatching undefined, the action
+	// will use default location
 	const err = () => {
 		myLocationFetch(undefined);
 	};

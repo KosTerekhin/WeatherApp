@@ -12,6 +12,8 @@ const NotFoundComponent = () => (
 				<Message.Header style={{ marginBottom: '20px', textAlign: 'center' }}>
 					404 PAGE DOES NOT EXIST
 				</Message.Header>
+				{/* MADE A CUTSOM BUTTOM
+				BECAUSE SEMANTIC UI BUTTON THROWS AN ERROR */}
 				<Link to="/">
 					<HomeBtn bg="#00b5ad">Home</HomeBtn>
 				</Link>

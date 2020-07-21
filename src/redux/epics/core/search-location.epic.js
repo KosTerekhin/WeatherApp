@@ -1,6 +1,6 @@
 import { ofType } from 'redux-observable';
 import { of } from 'rxjs';
-import { tap, map, mergeMap, filter } from 'rxjs/operators';
+import { map, mergeMap, filter } from 'rxjs/operators';
 import { CLIENT } from '../../globalVariables/actions.global';
 import {
 	SEARCHLOCATION,
@@ -21,9 +21,11 @@ export const searchLocationEpic = (action$) =>
 export const searchLocationFetchSuccessEpic = (action$) =>
 	action$.pipe(
 		ofType(`${SEARCHLOCATION} ${API_SUCCESS}`),
-		tap((action) => console.log(action.payload, 'SEARCH EPIC')),
 		mergeMap(({ payload }) => of(searchLocationUpdateStore({ payload, feature: SEARCHLOCATION })))
 	);
 
 export const searchLocationFetchErrorEpic = (action$) =>
-	action$.pipe(ofType(`${SEARCHLOCATION} ${API_ERROR}`), map((action) => searchLocationSetError(action.payload)));
+	action$.pipe(
+		ofType(`${SEARCHLOCATION} ${API_ERROR}`),
+		mergeMap(({ payload }) => of(searchLocationSetError({ error: payload })))
+	);

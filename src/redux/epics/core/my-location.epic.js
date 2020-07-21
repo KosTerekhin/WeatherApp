@@ -2,15 +2,9 @@ import { ofType } from 'redux-observable';
 import { of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { CLIENT } from '../../globalVariables/actions.global';
-import {
-	MYLOCATION,
-	MYLOCATION_URL,
-	MYLOCATION_FETCH,
-	myLocationUpdateStore,
-	myLocationSetError
-} from '../../actions/my-location.actions';
+import { MYLOCATION, MYLOCATION_URL, MYLOCATION_FETCH, myLocationUpdateStore } from '../../actions/my-location.actions';
 import { API_SUCCESS, API_ERROR, apiRequest } from '../../actions/api.actions';
-import { setNotification } from '../../actions/ui.actions';
+import { setNotification, UI_NOTIFICATION_MESSAGES } from '../../actions/ui.actions';
 import { urlUpdate } from '../../utils/functions.utils';
 
 export const myLocationEpic = (action$) =>
@@ -35,7 +29,5 @@ export const myLocationFetchSuccessEpic = (action$) =>
 export const myLocationFetchErrorEpic = (action$) =>
 	action$.pipe(
 		ofType(`${MYLOCATION} ${API_ERROR}`),
-		mergeMap(({ payload }) =>
-			of(myLocationSetError({ error: payload }), setNotification({ message: 'server error' }))
-		)
+		mergeMap(() => of(setNotification({ message: UI_NOTIFICATION_MESSAGES.serverError })))
 	);

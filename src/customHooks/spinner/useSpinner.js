@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Message, Icon, Grid } from 'semantic-ui-react';
+import { Message, Icon, Grid, Container } from 'semantic-ui-react';
 
 import SpinnerComponent from '../../assets/spinner/spinner.component';
 
@@ -18,8 +18,10 @@ const useSpinner = ({ loading, WrappedComponent, notificaiton } = {}) => {
 	if (notificaiton) {
 		return {
 			component: (
-				<Message negative>
-					<Message.Header>{notificaiton}</Message.Header>
+				<Message negative size="huge">
+					<Container textAlign="center">
+						<Message.Header>{notificaiton}</Message.Header>
+					</Container>
 				</Message>
 			)
 		};

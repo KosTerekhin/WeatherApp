@@ -3,9 +3,9 @@ import { of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { CLIENT } from '../../globalVariables/actions.global';
-import { CITY, CITY_URL, CITY_FETCH, cityUpdateStore, citySetError } from '../../actions/city.actions';
+import { CITY, CITY_URL, CITY_FETCH, cityUpdateStore } from '../../actions/city.actions';
 import { API_SUCCESS, API_ERROR, apiRequest } from '../../actions/api.actions';
-import { setNotification } from '../../actions/ui.actions';
+import { setNotification, UI_NOTIFICATION_MESSAGES } from '../../actions/ui.actions';
 import { urlUpdate } from '../../utils/functions.utils';
 
 export const cityEpic = (action$) =>
@@ -30,5 +30,5 @@ export const cityFetchSuccessEpic = (action$) =>
 export const cityFetchErrorEpic = (action$) =>
 	action$.pipe(
 		ofType(`${CITY} ${API_ERROR}`),
-		mergeMap(({ payload }) => of(citySetError({ error: payload }), setNotification({ message: 'server error' })))
+		mergeMap(() => of(setNotification({ message: UI_NOTIFICATION_MESSAGES.serverError })))
 	);

@@ -13,6 +13,9 @@ export const UI_SET_NOTIFICATION = `${UI} SET_NOTIFICATION`;
 export const UI_GLOBAL_CLEAR_LOADING = `${UI}${GLOBAL} CLEAR_LOADING`;
 export const UI_SEARCH_CLEAR_LOADING = `${UI}${SEARCH} CLEAR_LOADING`;
 export const UI_CLEAR_NOTIFICATION = `${UI} CLEAR_NOTIFICATION`;
+export const UI_NOTIFICATION_MESSAGES = {
+	serverError: 'server error'
+};
 
 // REDIRECT ACTIONS
 export const redirectorClient = ({ route, history }) => ({

@@ -21,7 +21,6 @@ export const myLocationUpdateStore = ({ payload, feature }) => ({
 	}
 });
 
-export const myLocationSetError = ({ error }) => ({
-	type: MYLOCATION_SET_ERROR,
-	payload: error
+export const myLocationSetError = () => ({
+	type: MYLOCATION_SET_ERROR
 });

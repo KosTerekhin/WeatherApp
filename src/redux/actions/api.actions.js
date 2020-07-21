@@ -30,7 +30,7 @@ export const apiSuccess = ({ data, feature }) => ({
 	payload: data
 });
 
-export const apiError = ({ error, feature }) => ({
+export const apiError = ({ error = null, feature }) => ({
 	type: `${feature} ${API_ERROR}`,
 	payload: error
 });

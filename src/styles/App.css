@@ -15,8 +15,8 @@ body {
 }
 
 .main-img {
-  max-height: 15vh;
-  height: 15vh;
+  max-height: 160px;
+  height: 160px;
   background-image: url("https://openweathermap.org/themes/openweathermap/assets/img/slide-1.jpg");
   background-size: cover;
   background-position: center;
@@ -24,7 +24,7 @@ body {
 }
 
 .main-img > h1 {
-  margin-top: 4vh !important;
+  margin-top: 60px !important;
 }
 
 .main-header {

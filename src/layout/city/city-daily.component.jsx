@@ -28,7 +28,7 @@ const CityDailyComponent = ({ daily }) => (
 								{(+day - 273.15).toFixed(1)}
 							</Card.Header>
 							<Card.Header className="main-header">
-								{+new Date(dt).toLocaleString('uk-UA', { day: 'numeric' }) + i + 1}th
+								{+new Date(+dt * 1000).toLocaleString('uk-UA', { day: 'numeric' }) + 1}th
 							</Card.Header>
 						</Card.Content>
 					</Card>

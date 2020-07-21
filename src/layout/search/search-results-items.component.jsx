@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Message, Icon, Divider } from 'semantic-ui-react';
+import { List, Divider } from 'semantic-ui-react';
 import { createStructuredSelector } from 'reselect';
 import { selectSearchResults } from '../../redux/selectors/search-location.selectors';
 import { redirectorClient } from '../../redux/actions/ui.actions';
 
-import { List } from 'semantic-ui-react';
-
-const SearchItems = ({ redirectorClient, cities, history }) => (
-	<List>
-		{cities ? cities.length > 0 ? (
-			cities.map(({ name, country, lat, lng: lon }, index) => (
+const SearchItems = ({ redirectorClient, cities, history }) => {
+	return (
+		<Fragment>
+			{cities.map(({ name, country, lat, lng: lon }, index) => (
 				<List.Item key={lat + index}>
 					<Divider horizontal inverted>
 						-
@@ -38,15 +36,10 @@ const SearchItems = ({ redirectorClient, cities, history }) => (
 						</List.Description>
 					</List.Content>
 				</List.Item>
-			))
-		) : (
-			<Message negative>
-				<Message.Header>0 results found</Message.Header>
-				<Icon name="frown outline" />
-			</Message>
-		) : null}
-	</List>
-);
+			))}
+		</Fragment>
+	);
+};
 
 const mapToProps = createStructuredSelector({
 	cities: selectSearchResults

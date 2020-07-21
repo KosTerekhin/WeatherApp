@@ -22,7 +22,6 @@ export const cityUpdateStore = ({ payload, feature }) => ({
 	}
 });
 
-export const citySetError = ({ error }) => ({
-	type: CITY_SET_ERROR,
-	payload: error
+export const citySetError = () => ({
+	type: CITY_SET_ERROR
 });

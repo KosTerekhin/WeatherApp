@@ -2,12 +2,14 @@ import { CLIENT } from '../globalVariables/actions.global';
 import {
 	SEARCHLOCATION_FETCH,
 	SEARCHLOCATION_UPDATE_STORE,
-	SEARCHLOCATION_SET_ERROR
+	SEARCHLOCATION_SET_ERROR,
+	SEARCHLOCATION_CLEAR_ERROR
 } from '../actions/search-location.actions';
 import { UI_REDIRECT_SUCCESS } from '../actions/ui.actions';
 
 const INITIAL_STATE = {
-	cities: null
+	cities: null,
+	error: null
 };
 
 const searchLocationReducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +26,12 @@ const searchLocationReducer = (state = INITIAL_STATE, action) => {
 				error: action.payload
 			};
 
+		case SEARCHLOCATION_CLEAR_ERROR:
+			return {
+				...state,
+				error: null
+			};
+
 		case `${CLIENT} ${SEARCHLOCATION_FETCH}`:
 			return {
 				...state,
@@ -33,7 +41,8 @@ const searchLocationReducer = (state = INITIAL_STATE, action) => {
 		case UI_REDIRECT_SUCCESS: {
 			return {
 				...state,
-				cities: null
+				cities: null,
+				error: null
 			};
 		}
 

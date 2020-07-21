@@ -7,6 +7,7 @@ export const SEARCHLOCATION = '[search-location]';
 export const SEARCHLOCATION_FETCH = `${SEARCHLOCATION} FETCH`;
 export const SEARCHLOCATION_UPDATE_STORE = `${SEARCHLOCATION} UPDATE_STORE`;
 export const SEARCHLOCATION_SET_ERROR = `${SEARCHLOCATION} SET_ERROR`;
+export const SEARCHLOCATION_CLEAR_ERROR = `${SEARCHLOCATION} CLEAR_ERROR`;
 export const SEARCHLOCATION_DEBOUNCE = {
 	debounceTime: 1000
 };
@@ -28,4 +29,8 @@ export const searchLocationUpdateStore = ({ payload, feature }) => ({
 export const searchLocationSetError = ({ error }) => ({
 	type: SEARCHLOCATION_SET_ERROR,
 	payload: error
+});
+
+export const searchLocationClearError = () => ({
+	type: SEARCHLOCATION_CLEAR_ERROR
 });

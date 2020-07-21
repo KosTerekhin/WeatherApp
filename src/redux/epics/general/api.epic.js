@@ -3,7 +3,11 @@ import { ajax } from 'rxjs/ajax';
 import { of, from, concat } from 'rxjs';
 import { mergeMap, switchMap, debounceTime, catchError, takeUntil, filter } from 'rxjs/operators';
 import { API_REQUEST, API_CUSTOM_REQUEST, apiSuccess, apiError } from '../../actions/api.actions';
-import { SEARCHLOCATION, SEARCHLOCATION_DEBOUNCE } from '../../actions/search-location.actions';
+import {
+	searchLocationClearError,
+	SEARCHLOCATION,
+	SEARCHLOCATION_DEBOUNCE
+} from '../../actions/search-location.actions';
 import {
 	setGlobalLoading,
 	clearGlobalLoading,
@@ -39,9 +43,7 @@ export const apiEpic = (action$) =>
 								clearGlobalLoading()
 							)
 						),
-						catchError(({ message }) =>
-							of(apiError({ error: message, feature: action.meta.feature }), clearGlobalLoading())
-						),
+						catchError(() => of(apiError({ feature: action.meta.feature }), clearGlobalLoading())),
 						takeUntil(action$.pipe(filter(({ type }) => type.includes(UI_REDIRECT))))
 					)
 				)
@@ -55,7 +57,7 @@ export const apiSearchEpic = (action$) =>
 		debounceTime(SEARCHLOCATION_DEBOUNCE.debounceTime),
 		switchMap((action) =>
 			concat(
-				of(setSearchLoading(), clearNotification()),
+				of(setSearchLoading(), searchLocationClearError()),
 				from(
 					ajaxer(action).pipe(
 						mergeMap(({ response }) =>

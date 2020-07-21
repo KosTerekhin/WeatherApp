@@ -1,7 +1,7 @@
 import { CLIENT, defaultLocation } from '../globalVariables/actions.global';
-import { BASE_URL, KEY } from '../globalVariables/api.global';
+import { BASE_URL } from '../globalVariables/api.global';
 
-export const MYLOCATION_URL = `${BASE_URL}weather?lat={lat}&lon={lon}&appid=${KEY}`;
+export const MYLOCATION_URL = `${BASE_URL}weather?lat={lat}&lon={lon}&appid=${process.env.REACT_APP_API_KEY}`;
 
 export const MYLOCATION = '[my-location]';
 export const MYLOCATION_FETCH = `${MYLOCATION} FETCH`;

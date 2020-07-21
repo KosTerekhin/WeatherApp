@@ -1,8 +1,8 @@
 import { CLIENT } from '../globalVariables/actions.global';
-import { BASE_URL, KEY } from '../globalVariables/api.global';
+import { BASE_URL } from '../globalVariables/api.global';
 
 export const CITY_URL = `${BASE_URL}onecall?lat={lat}&lon={lon}&
-exclude=curren,minutely,hourly&appid=${KEY}`;
+exclude=curren,minutely,hourly&appid=${process.env.REACT_APP_API_KEY}`;
 
 export const CITY = '[city]';
 export const CITY_FETCH = `${CITY} FETCH`;
